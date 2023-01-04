@@ -1,14 +1,21 @@
 import unittest
-from translator import english_to_french,french_to_english
+from translator import english_to_french
+from translator import french_to_english
 
-class english_to_french(unittest.TestCase):
+class Eng_Fr(unittest.TestCase):
+    """English to French tests"""
     def test1(self):
-        self.assertTrue(english_to_french(''), '')  # test when a null imput is given and the output is not null.
-        self.assertTrue(english_to_french('Hello'), 'Bonjour') # test when "Hello" is given as input the output is "Bonjour".
-        
+        self.assertEqual(english_to_french('Hello'), 'Bonjour')
+        self.assertNotEqual(english_to_french('Hello'), 'Hello')
+        self.assertNotEqual(english_to_french("None"), '')
+        self.assertNotEqual(english_to_french(0), 0)
 
-class french_to_english(unittest.TestCase):
+class Fr_en(unittest.TestCase):
+    """French to English tests"""
     def test1(self):
-        self.assertTrue(french_to_english(''), '')  # test when a null imput is given and the output is not null.
-        self.assertTrue(french_to_english('Bonjour'),'Hello') # test when "Bonjour" is given as input the output is "Hello".
+        self.assertEqual(french_to_english('Bonjour'), 'Hello')
+        self.assertNotEqual(french_to_english('Bonjour'), 'Bonjour')
+        self.assertNotEqual(french_to_english("None"), '')
+        self.assertNotEqual(french_to_english(0),0)
+
 unittest.main()
